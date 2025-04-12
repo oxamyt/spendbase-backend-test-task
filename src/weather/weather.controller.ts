@@ -4,9 +4,11 @@ import {
   Body,
   UsePipes,
   ValidationPipe,
+  Get,
+  Query,
 } from '@nestjs/common';
 import { WeatherService } from './weather.service';
-import { WeatherDataDto } from './weather-data.dto';
+import { PostWeatherDataDto, GetWeatherDataDto } from './weather-data.dto';
 
 @Controller('weather')
 export class WeatherController {
@@ -14,7 +16,13 @@ export class WeatherController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  fetchWeather(@Body() weatherDataDto: WeatherDataDto) {
-    return this.weatherService.fetchWeatherData(weatherDataDto);
+  recordWeather(@Body() postWeatherDataDto: PostWeatherDataDto) {
+    return this.weatherService.recordWeatherData(postWeatherDataDto);
+  }
+
+  @Get()
+  @UsePipes(new ValidationPipe({ transform: true }))
+  fetchWeather(@Query() getWeatherDataDto: GetWeatherDataDto) {
+    return this.weatherService.fetchWeatherData(getWeatherDataDto);
   }
 }
