@@ -15,8 +15,8 @@
 
 ## Example
   POST `http://localhost:3000/weather`
-       ```
-       Body:{
+      
+ Request Body:```{
             "lat": 33,
             "lon": 33,
             "part": ["daily"]
