@@ -160,11 +160,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://spendbase-test-task_owner:npg_3eYs6TQqgtKi@ep-flat-base-a5kl3w6f-pooler.us-east-2.aws.neon.tech/spendbase-test-task?sslmode=require"
+        "value": null
       }
     }
   },
