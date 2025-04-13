@@ -117,3 +117,11 @@ export type Alert = {
   description: string;
   tags: string[];
 };
+
+export interface WeatherResponse {
+  id: number;
+  lon: number;
+  lat: number;
+  data: OneCallResponse;
+  createdAt: Date;
+}
